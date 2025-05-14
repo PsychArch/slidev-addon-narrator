@@ -1,6 +1,6 @@
 {
     "name": "slidev-addon-narrator",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "Automatically play audio files associated with slides in Slidev",
     "homepage": "https://github.com/PsychArch/slidev-addon-narrator",
     "repository": {
@@ -10,7 +10,6 @@
     "bugs": {
         "url": "https://github.com/PsychArch/slidev-addon-narrator/issues"
     },
-    "main": "components/Narrator.vue",
     "files": [
         "components/*",
         "global-top.vue"
