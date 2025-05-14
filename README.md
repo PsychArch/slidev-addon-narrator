@@ -1,7 +1,5 @@
 # slidev-addon-narrator
 
-> ⚠️ **Note:** This package was previously named `slidev-narrator`. It has been renamed to `slidev-addon-narrator` to follow Slidev addon naming conventions.
-
 [![NPM version](https://img.shields.io/npm/v/slidev-addon-narrator?color=3AB9D4&label=)](https://www.npmjs.com/package/slidev-addon-narrator)
 
 A [Slidev](https://github.com/slidevjs/slidev) addon that automatically plays audio files associated with slides.

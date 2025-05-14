@@ -17,6 +17,7 @@
     ],
     "scripts": {
         "dev": "slidev example.md --open",
+        "build": "slidev build example.md",
         "release:major": "npm version major && git push origin && git push origin --tags",
         "release:minor": "npm version minor && git push origin && git push origin --tags",
         "release:patch": "npm version patch && git push origin && git push origin --tags"
@@ -37,7 +38,7 @@
     },
     "license": "MIT",
     "engines": {
-        "node": ">=14.0.0",
+        "node": ">=20.0.0",
         "slidev": ">=0.48.0"
     },
     "peerDependencies": {
