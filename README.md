@@ -1,13 +1,15 @@
-# slidev-narrator
+# slidev-addon-narrator
 
-[![NPM version](https://img.shields.io/npm/v/slidev-narrator?color=3AB9D4&label=)](https://www.npmjs.com/package/slidev-narrator)
+> ⚠️ **Note:** This package was previously named `slidev-narrator`. It has been renamed to `slidev-addon-narrator` to follow Slidev addon naming conventions.
 
-A [Slidev](https://github.com/slidevjs/slidev) plugin that automatically plays audio files associated with slides.
+[![NPM version](https://img.shields.io/npm/v/slidev-addon-narrator?color=3AB9D4&label=)](https://www.npmjs.com/package/slidev-addon-narrator)
+
+A [Slidev](https://github.com/slidevjs/slidev) addon that automatically plays audio files associated with slides.
 
 ## Installation
 
 ```bash
-npm install slidev-narrator
+npm install slidev-addon-narrator
 ```
 
 ## Configuration
@@ -18,7 +20,7 @@ In your slides metadata (using frontmatter):
 ```
 ---
 addons:
-  - slidev-narrator
+  - slidev-addon-narrator
 ---
 ```
 
@@ -27,7 +29,7 @@ Or in your `package.json`:
 {
   "slidev": {
     "addons": [
-      "slidev-narrator"
+      "slidev-addon-narrator"
     ]
   }
 }
@@ -49,7 +51,7 @@ The keys are slide numbers (1-based), and the values are arrays of audio file pa
 
 2. Add your audio files to the `public` directory of your Slidev project.
 
-3. Add the plugin to your Slidev presentation by importing it in a `global-top.vue` file in your Slidev project:
+3. Add the addon to your Slidev presentation by importing it in a `global-top.vue` file in your Slidev project:
 
 ```vue
 <template>

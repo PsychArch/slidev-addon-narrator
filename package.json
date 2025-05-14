@@ -1,14 +1,14 @@
 {
-    "name": "slidev-narrator",
+    "name": "slidev-addon-narrator",
     "version": "0.1.0",
     "description": "Automatically play audio files associated with slides in Slidev",
-    "homepage": "https://github.com/PsychArch/slidev-narrator",
+    "homepage": "https://github.com/PsychArch/slidev-addon-narrator",
     "repository": {
         "type": "git",
-        "url": "git@github.com:PsychArch/slidev-narrator.git"
+        "url": "git@github.com:PsychArch/slidev-addon-narrator.git"
     },
     "bugs": {
-        "url": "https://github.com/PsychArch/slidev-narrator/issues"
+        "url": "https://github.com/PsychArch/slidev-addon-narrator/issues"
     },
     "main": "components/Narrator.vue",
     "files": [
@@ -17,13 +17,14 @@
     ],
     "scripts": {
         "dev": "slidev example.md --open",
-        "release:major": "changelog -M && git add CHANGELOG.md && git commit -m 'feat(docs): updated CHANGELOG.md' && npm version major && git push origin && git push origin --tags",
-        "release:minor": "changelog -m && git add CHANGELOG.md && git commit -m 'feat(docs): updated CHANGELOG.md' && npm version minor && git push origin && git push origin --tags",
-        "release:patch": "changelog -p && git add CHANGELOG.md && git commit -m 'feat(docs): updated CHANGELOG.md' && npm version patch && git push origin && git push origin --tags"
+        "release:major": "npm version major && git push origin && git push origin --tags",
+        "release:minor": "npm version minor && git push origin && git push origin --tags",
+        "release:patch": "npm version patch && git push origin && git push origin --tags"
     },
     "keywords": [
         "vuejs",
         "slidev",
+        "slidev-addon",
         "audio",
         "narrator",
         "presentation",
@@ -46,7 +47,6 @@
     "devDependencies": {
         "@slidev/cli": "^0.48.0",
         "@slidev/theme-default": "latest",
-        "generate-changelog": "^1.8.0",
         "vue": "^3.2.34"
     }
 } 
