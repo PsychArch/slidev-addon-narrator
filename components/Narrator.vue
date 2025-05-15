@@ -27,7 +27,7 @@ const props = defineProps({
     },
     debug: {
         type: Boolean,
-        default: true
+        default: false
     }
 })
 
