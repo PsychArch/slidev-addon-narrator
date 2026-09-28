@@ -3,9 +3,6 @@ theme: default
 layout: center
 ---
 
-<!-- This component will automatically play audio files for each slide -->
-<Narrator />
-
 # Slidev Narrator Demo
 
 A demonstration with audio narration (female and male welcome voices)

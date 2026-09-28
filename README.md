@@ -47,6 +47,8 @@ Or in your `package.json`:
 
 The keys are slide numbers (1-based), and the values are arrays of audio file paths that will be played sequentially when the slide is shown.
 
+Paths starting with `/` are resolved against your deck's `base`, so decks deployed under a sub-path (e.g. `slidev build --base /my-deck/` for GitHub Pages) work without changing the manifest. Relative paths and full URLs are used as-is.
+
 2. Add your audio files to the `public` directory of your Slidev project.
 
 3. Add the addon to your Slidev presentation by importing it in a `global-top.vue` file in your Slidev project:
@@ -56,6 +58,12 @@ The keys are slide numbers (1-based), and the values are arrays of audio file pa
     <Narrator />
 </template>
 ```
+
+Mount `<Narrator />` once, in `global-top.vue`, rather than inside individual slides. If it is mounted more than once, only the first instance plays audio.
+
+4. Browsers block audio until the user interacts with the page, so an **Enable Audio Narration** button is shown in the bottom-right corner. Click it once to start narration.
+
+Narration only plays in the main presentation view. It stays silent (and shows no button) in presenter view, the notes view, print/export mode and embedded previews, so opening the presenter window alongside the audience window does not play audio twice.
 
 ## Components
 
@@ -76,10 +84,10 @@ Component that automatically plays audio files for slides:
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | `manifestPath` | String | `/manifest.json` | Path to the audio manifest file |
-| `autoplay` | Boolean | `true` | Whether to automatically play audio when slides change |
+| `autoplay` | Boolean | `true` | Whether to automatically play audio when slides change. When `false`, use `playCurrentSlideAudio()` to start narration manually |
 | `volume` | Number | `1.0` | Audio volume (between 0 and 1) |
 | `preloadNext` | Boolean | `true` | Preload audio for the next slide |
-| `debug` | Boolean | `true` | Show debug overlay for troubleshooting |
+| `debug` | Boolean | `false` | Show debug overlay (including manifest load errors) for troubleshooting |
 
 ## Advanced Usage
 
@@ -101,9 +109,13 @@ const narrator = ref(null)
 ```
 
 Available methods:
-- `playCurrentSlideAudio()` - Play audio for the current slide
+- `playCurrentSlideAudio()` - Play audio for the current slide from the beginning (also enables audio, and works when `autoplay` is `false`)
 - `pauseAudio()` - Pause the currently playing audio
 - `resumeAudio()` - Resume the paused audio
+- `stopAudio()` - Stop narration for the current slide
+- `enableAudio()` - Enable audio playback (same as clicking the button)
+
+Exposed state: `isPlaying`, `audioEnabled`, `debugMessages`.
 
 ## Features
 
@@ -112,7 +124,9 @@ Available methods:
 - Automatically pauses audio when navigating to another slide
 - Audio preloading for better performance
 - Volume control
-- No visible UI components (works silently in the background)
+- Minimal UI: a one-time button to enable audio, plus an optional debug overlay
+- Plays only in the main presentation view (not presenter, notes, or export)
+- Respects the deck's base path
 - Manual playback control through exposed methods
 
 ## License

@@ -16,6 +16,7 @@
     "scripts": {
         "dev": "slidev example.md --open",
         "build": "slidev build example.md",
+        "test": "vitest run",
         "release:major": "npm version major && git push origin && git push origin --tags",
         "release:minor": "npm version minor && git push origin && git push origin --tags",
         "release:patch": "npm version patch && git push origin && git push origin --tags"
@@ -40,12 +41,16 @@
         "slidev": ">=0.48.0 || >=51.0.0"
     },
     "peerDependencies": {
-        "vue": "^3.2.34",
-        "@slidev/client": "^0.48.0 || ^51.0.0"
+        "@slidev/client": "^0.48.0 || ^51.0.0",
+        "vue": "^3.2.34"
     },
     "devDependencies": {
         "@slidev/cli": "^0.48.0 || ^51.0.0",
         "@slidev/theme-default": "latest",
+        "@vitejs/plugin-vue": "^5.2.4",
+        "@vue/test-utils": "^2.5.1",
+        "happy-dom": "^20.14.5",
+        "vitest": "^2.1.9",
         "vue": "^3.2.34"
     }
 }
